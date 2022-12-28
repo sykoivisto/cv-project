@@ -56,17 +56,22 @@ class Inputs extends Component {
       experience: this.state.experience.concat(newExperience)
     })
   }
-
-  onAddEducationGroup() {
-
-  }
-
+  
   onDeleteExperienceGroup(id) { // filter out the object with the corresponding id
     this.setState({
       experience: this.state.experience.filter(item => {
         return item.id !== id
       })
     })
+  }
+
+  onUpdateExperienceGroup(state) {
+    // this function should take the passed in value (state of an experience input group)
+    // and update the state of this component appropriately
+  }
+  
+  onAddEducationGroup() {
+
   }
 
   onDeleteEducationGroup() {
@@ -79,7 +84,7 @@ class Inputs extends Component {
         <PersonalInfoInputGroup></PersonalInfoInputGroup>
         {
           this.state.experience.map(experience => {
-            return <ExperienceInputGroup key={experience.id} experience={experience} delete={this.onDeleteExperienceGroup}></ExperienceInputGroup>
+            return <ExperienceInputGroup key={experience.id} experience={experience} delete={this.onDeleteExperienceGroup} update={this.onUpdateExperienceGroup}></ExperienceInputGroup>
           })
         }
         <button onClick={this.onAddExperienceGroup}>Add Work Experience +</button>
