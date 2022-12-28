@@ -18,6 +18,7 @@ class ExperienceInputGroup extends Component {
         <input placeholder='Date Start' id='dateStart'></input>
         <input placeholder='Date End' id='dateEnd'></input>
         <textarea placeholder='Description...' id='desc'></textarea>
+        <button onClick={() => this.props.delete(this.props.experience.id)}>Remove Item</button>
       </div>
     )
   }

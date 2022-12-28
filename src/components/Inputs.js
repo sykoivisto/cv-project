@@ -49,7 +49,7 @@ class Inputs extends Component {
   // <ExperienceInputGroup> and <EducationInputGroup>
   // so they are usable from the buttons within the components
 
-  onAddExperienceGroup() {
+  onAddExperienceGroup() { // create a new Experience object with a unique ID
     let id = new Date(); // use date as a unique id
     let newExperience = Experience(id.getTime()); // create a new experience obj with unique id
     this.setState({
@@ -61,8 +61,12 @@ class Inputs extends Component {
 
   }
 
-  onDeleteExperienceGroup() {
-
+  onDeleteExperienceGroup(id) { // filter out the object with the corresponding id
+    this.setState({
+      experience: this.state.experience.filter(item => {
+        return item.id !== id
+      })
+    })
   }
 
   onDeleteEducationGroup() {
@@ -75,7 +79,7 @@ class Inputs extends Component {
         <PersonalInfoInputGroup></PersonalInfoInputGroup>
         {
           this.state.experience.map(experience => {
-            return <ExperienceInputGroup key={experience.id} experience={experience}></ExperienceInputGroup>
+            return <ExperienceInputGroup key={experience.id} experience={experience} delete={this.onDeleteExperienceGroup}></ExperienceInputGroup>
           })
         }
         <button onClick={this.onAddExperienceGroup}>Add Work Experience +</button>
