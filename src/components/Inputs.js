@@ -15,14 +15,20 @@ class Inputs extends Component {
     return (
       <div className='inputs'>
         <PersonalInfoInputGroup></PersonalInfoInputGroup>
+        <h1>Work Experience</h1>
         {
           this.props.state.experience.map(experience => {
             return <ExperienceInputGroup key={experience.id} experience={experience} delete={this.props.deleteExperience} update={this.props.updateExperience}></ExperienceInputGroup>
           })
         }
         <button onClick={this.props.addExperience}>Add Work Experience +</button>
-        <EducationInputGroup></EducationInputGroup>
-        <button>Add Education +</button>
+        <h1>Education</h1>
+        {
+          this.props.state.education.map(education => {
+            return <EducationInputGroup key={education.id} education={education} delete={this.props.deleteEducation} update={this.props.updateEducation}></EducationInputGroup>
+          })
+        }
+        <button onClick={this.props.addEducation}>Add Education +</button>
       </div>
     )
   }

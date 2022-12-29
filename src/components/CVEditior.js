@@ -41,6 +41,37 @@ const Experience = (id, company, title, dateStart, dateEnd, description) => {
     },
   };
 };
+const Education = (id, institution, title, dateStart, dateEnd) => {
+  return {
+    get id() {
+      return id;
+    },
+    get institution() {
+      return institution;
+    },
+    set institution(val) {
+      institution = val;
+    },
+    get title() {
+      return title;
+    },
+    set title(val) {
+      title = val;
+    },
+    get dateStart() {
+      return dateStart;
+    },
+    set dateStart(val) {
+      dateStart = val;
+    },
+    get dateEnd() {
+      return dateEnd;
+    },
+    set dateEnd(val) {
+      dateEnd = val;
+    },
+  };
+};
 
 class CVEditor extends Component {
   constructor(props) {
@@ -62,6 +93,10 @@ class CVEditor extends Component {
     this.onAddExperienceGroup = this.onAddExperienceGroup.bind(this);
     this.onDeleteExperienceGroup = this.onDeleteExperienceGroup.bind(this);
     this.onUpdateExperienceGroup = this.onUpdateExperienceGroup.bind(this);
+
+    this.onAddEducationGroup = this.onAddEducationGroup.bind(this);
+    this.onDeleteEducationGroup = this.onDeleteEducationGroup.bind(this);
+    this.onUpdateEducationGroup = this.onUpdateEducationGroup.bind(this);
   }
 
   onAddExperienceGroup() {
@@ -95,6 +130,36 @@ class CVEditor extends Component {
     });
   }
 
+  onAddEducationGroup() {
+    let id = new Date(); // use date as a unique id
+    let newEducation = Education(id.getTime()); // create a new obj with unique id
+    this.setState({
+      education: this.state.education.concat(newEducation),
+    });
+  }
+
+  onDeleteEducationGroup(id) {
+    // filter out the object with the corresponding id
+    this.setState({
+      education: this.state.education.filter((item) => {
+        return item.id !== id;
+      }),
+    });
+  }
+
+  onUpdateEducationGroup(updateInfo) {
+    // receives the information needed to update the state here.
+    // {id: string, property: string, value: string}
+    const itemIndex = this.state.education.findIndex(
+      (item) => item.id === updateInfo.id
+    );
+    this.setState({
+      education: update(this.state.education, {
+        [itemIndex]: { [updateInfo.property]: { $set: updateInfo.value } },
+      }),
+    });
+  }
+
   render() {
     return (
       <div>
@@ -103,6 +168,9 @@ class CVEditor extends Component {
           addExperience={this.onAddExperienceGroup}
           deleteExperience={this.onDeleteExperienceGroup}
           updateExperience={this.onUpdateExperienceGroup}
+          addEducation={this.onAddEducationGroup}
+          deleteEducation={this.onDeleteEducationGroup}
+          updateEducation={this.onUpdateEducationGroup}
         ></Inputs>
         <Preview
           state={this.state}

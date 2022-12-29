@@ -24,7 +24,6 @@ class ExperienceInputGroup extends Component {
 
     return (
       <div className='workExperienceInput'>
-        <h1>Work Experience</h1>
         <input onChange={handleChange} placeholder='Company' id='company'></input>
         <input onChange={handleChange} placeholder='Title' id='title'></input>
         <input onChange={handleChange} placeholder='Date Start' id='dateStart'></input>

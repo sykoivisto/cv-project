@@ -39,20 +39,21 @@ class Preview extends Component {
             )
           })}
         </div>
-        {/* <div className='education'>
+        <div className='education'>
           <h1>Education</h1>
-          { this.props.education.map(experience => {
+          { this.props.state.education.map(education => {
             return (
-              <div key={ experience.institution + experience.title } className='educationItem'>
+              <div key={ education.id } className='educationItem'>
                 <div className='educationInfo'>
-                  <span>{ experience.title }</span>
-                  <span>{ experience.institution }</span>
-                  <span>{ experience.dates }</span>
+                  <span>{ education.title }</span>
+                  <span>{ education.institution }</span>
+                  <span>{ education.dateStart }</span>
+                  <span>{ education.dateEnd }</span>
                 </div>
               </div>
             )
           })}
-        </div> */}
+        </div>
       </div>
     )
   }
