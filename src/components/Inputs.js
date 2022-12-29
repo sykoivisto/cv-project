@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import update from 'immutability-helper';
 
 import EducationInputGroup from './EducationInputGroup';
 import ExperienceInputGroup from './ExperienceInputGroup';
@@ -37,10 +38,11 @@ class Inputs extends Component {
       education: [],
     }
 
-
     this.onAddExperienceGroup = this.onAddExperienceGroup.bind(this);
-    this.onAddEducationGroup = this.onAddEducationGroup.bind(this);
     this.onDeleteExperienceGroup = this.onDeleteExperienceGroup.bind(this);
+    this.onUpdateExperienceGroup = this.onUpdateExperienceGroup.bind(this);
+
+    this.onAddEducationGroup = this.onAddEducationGroup.bind(this);
     this.onDeleteEducationGroup = this.onDeleteEducationGroup.bind(this);
 
   }
@@ -65,9 +67,13 @@ class Inputs extends Component {
     })
   }
 
-  onUpdateExperienceGroup(state) {
-    // this function should take the passed in value (state of an experience input group)
-    // and update the state of this component appropriately
+  onUpdateExperienceGroup(updateInfo) {
+    // receives the information needed to update the state here.
+    // {id: string, property: string, value: string}
+    const itemIndex = this.state.experience.findIndex(item => item.id === updateInfo.id);
+    this.setState({
+      experience: update(this.state.experience, {[itemIndex]: {[updateInfo.property]: {$set: updateInfo.value}}})
+    })
   }
   
   onAddEducationGroup() {

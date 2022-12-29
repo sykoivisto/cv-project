@@ -19,7 +19,7 @@ class ExperienceInputGroup extends Component {
     const handleChange = (e) => {
       this.setState({
         [e.target.id]: e.target.value
-      }, () => this.props.update(this.state))
+      }, () => this.props.update({id: this.state.id, property: e.target.id, value: this.state[e.target.id]}))
     }
 
     return (
