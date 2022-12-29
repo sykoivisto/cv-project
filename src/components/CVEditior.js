@@ -97,6 +97,8 @@ class CVEditor extends Component {
     this.onAddEducationGroup = this.onAddEducationGroup.bind(this);
     this.onDeleteEducationGroup = this.onDeleteEducationGroup.bind(this);
     this.onUpdateEducationGroup = this.onUpdateEducationGroup.bind(this);
+
+    this.onUpdatePersonalInfo = this.onUpdatePersonalInfo.bind(this);
   }
 
   onAddExperienceGroup() {
@@ -160,6 +162,14 @@ class CVEditor extends Component {
     });
   }
 
+  onUpdatePersonalInfo(updateInfo) {
+    this.setState({
+      personalInfo: update(this.state.personalInfo, {
+        [updateInfo.property]: { $set: updateInfo.value },
+      }),
+    });
+  }
+
   render() {
     return (
       <div>
@@ -171,10 +181,9 @@ class CVEditor extends Component {
           addEducation={this.onAddEducationGroup}
           deleteEducation={this.onDeleteEducationGroup}
           updateEducation={this.onUpdateEducationGroup}
+          updatePersonalInfo={this.onUpdatePersonalInfo}
         ></Inputs>
-        <Preview
-          state={this.state}
-        ></Preview>
+        <Preview form={this.state}></Preview>
       </div>
     );
   }

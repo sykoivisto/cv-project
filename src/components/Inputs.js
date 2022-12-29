@@ -4,17 +4,12 @@ import EducationInputGroup from './EducationInputGroup';
 import ExperienceInputGroup from './ExperienceInputGroup';
 import PersonalInfoInputGroup from './PersonalInfoInputGroup';
 
-
-
 class Inputs extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
       <div className='inputs'>
-        <PersonalInfoInputGroup></PersonalInfoInputGroup>
+        <PersonalInfoInputGroup info={this.props.state.personalInfo} update={this.props.updatePersonalInfo}></PersonalInfoInputGroup>
         <h1>Work Experience</h1>
         {
           this.props.state.experience.map(experience => {

@@ -2,30 +2,26 @@ import React, { Component } from 'react';
 
 class Preview extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className='preview'>
-        {/* <div className='generalInfo'>
+        <div className='generalInfo'>
           <div className='nameTitle'>
-            <p>{ this.props.name }</p>
-            <p>{ this.props.title }</p>
+            <p>{ this.props.form.personalInfo.name }</p>
+            <p>{ this.props.form.personalInfo.title }</p>
           </div>
           <div className='contactInfo'>
-            <p>{ this.props.phone }</p>
-            <p>{ this.props.email }</p>
-            <p>{ this.props.location }</p>
+            <p>{ this.props.form.personalInfo.phone }</p>
+            <p>{ this.props.form.personalInfo.email }</p>
+            <p>{ this.props.form.personalInfo.location }</p>
           </div>
         </div>
         <div className='summary'>
-          <p>{ this.props.summary }</p>
-        </div> */}
+          <p>{ this.props.form.personalInfo.description }</p>
+        </div>
         <div className='workExperience'>
           <h1>Work Experience</h1>
-          { this.props.state.experience.map(experience => {
+          { this.props.form.experience.map(experience => {
             return (
               <div key={ experience.id } className='workExperienceItem'>
                 <div className='workExperienceInfo'>
@@ -41,7 +37,7 @@ class Preview extends Component {
         </div>
         <div className='education'>
           <h1>Education</h1>
-          { this.props.state.education.map(education => {
+          { this.props.form.education.map(education => {
             return (
               <div key={ education.id } className='educationItem'>
                 <div className='educationInfo'>
