@@ -1,9 +1,9 @@
-import Inputs from './components/Inputs';
+import CVEditor from './components/CVEditior';
 
 function App() {
   return (
     <div className="App">
-      <Inputs></Inputs>
+      <CVEditor></CVEditor>
     </div>
   );
 }

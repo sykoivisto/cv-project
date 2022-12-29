@@ -9,7 +9,7 @@ class Preview extends Component {
   render() {
     return (
       <div className='preview'>
-        <div className='generalInfo'>
+        {/* <div className='generalInfo'>
           <div className='nameTitle'>
             <p>{ this.props.name }</p>
             <p>{ this.props.title }</p>
@@ -22,23 +22,24 @@ class Preview extends Component {
         </div>
         <div className='summary'>
           <p>{ this.props.summary }</p>
-        </div>
+        </div> */}
         <div className='workExperience'>
           <h1>Work Experience</h1>
-          { this.props.workExperience.map(experience => {
+          { this.props.state.experience.map(experience => {
             return (
-              <div key={ experience.company + experience.title } className='workExperienceItem'>
+              <div key={ experience.id } className='workExperienceItem'>
                 <div className='workExperienceInfo'>
                   <span>{ experience.title }</span>
                   <span>{ experience.company }</span>
-                  <span>{ experience.dates }</span>
+                  <span>{ experience.dateStart }</span>
+                  <span>{ experience.dateEnd }</span>
                 </div>
-                <div className='workExperienceItemDesc'>{ experience.desc }</div>
+                <div className='workExperienceItemDesc'>{ experience.description }</div>
               </div>
             )
           })}
         </div>
-        <div className='education'>
+        {/* <div className='education'>
           <h1>Education</h1>
           { this.props.education.map(experience => {
             return (
@@ -51,7 +52,7 @@ class Preview extends Component {
               </div>
             )
           })}
-        </div>
+        </div> */}
       </div>
     )
   }
