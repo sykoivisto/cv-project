@@ -79,12 +79,12 @@ class CVEditor extends Component {
 
     this.state = {
       personalInfo: {
-        name: String,
-        title: String,
-        phone: String,
-        email: String,
-        location: String,
-        description: String,
+        name: '',
+        title: '',
+        phone: '',
+        email: '',
+        location: '',
+        description: '',
       },
       experience: [],
       education: [],
