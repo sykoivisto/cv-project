@@ -1,0 +1,167 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body, textarea, input {
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.wrapper {
+	margin: 15px 0;
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	flex-wrap: wrap;
+}
+.inputs, .preview {
+	display: inline-block;
+	width: 500px;
+}
+.preview {
+	min-height: 650px;
+	height: fit-content;
+}
+.groupWrapper {
+	margin: 15px 0;
+}
+.inputGroup {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	margin-bottom: 10px;
+}
+textarea {
+	resize: vertical;
+	border-radius: 5px;
+	padding-left: 5px;
+	border: 1px solid rgb(137, 137, 137);
+}
+input {
+	border-radius: 5px;
+	border: 1px solid rgb(137, 137, 137);
+	padding-left: 5px;
+}
+.inputs {
+	border: 2px solid rgb(0, 129, 152);
+	padding: 10px 30px;
+	border-radius: 5px;
+}
+.inputs h1 {
+	font-weight: 300;
+	margin-bottom: 10px;
+}
+button {
+	background-color: white;
+	border: 1px solid rgb(137, 137, 137);
+	border-radius: 5px;
+	
+	padding: 4px 10px;
+	
+	font-size: 14px;
+}
+.addButton {
+	color:rgb(0, 129, 152)
+}
+.preview {
+	border: 1px solid black;
+	box-shadow: 0px 0px 10px 0px rgb(215, 215, 215);
+
+	padding: 40px;
+	font-size: 13px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+.preview h1 {
+	font-size: 16px;
+	color: rgb(0, 129, 152);
+	margin-bottom: 5px;
+}
+.nameName {
+	font-size: 30px;
+	font-weight: 500;
+	color:rgb(0, 129, 152);
+}
+.nameTitle {
+	font-size: 18px;
+	font-weight: 300;
+}
+.contactInfo {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	
+	font-weight: 300;
+	font-size: 12px;
+}
+.generalInfo {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 12px;
+}
+.workExperienceItem {
+	margin-top: 10px;
+}
+.workExperienceInfo {
+	display: flex;
+	justify-content: space-between;
+	margin: 5px 0;
+}
+.experienceTitle {
+	font-weight: 500;
+}
+.experienceCompany {
+	font-weight: 300;
+}
+.educationInfo {
+	display: flex;
+	justify-content: space-between;
+}
+.edInstitution {
+	font-weight: 300;
+}

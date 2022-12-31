@@ -23,13 +23,13 @@ class ExperienceInputGroup extends Component {
     }
 
     return (
-      <div className='workExperienceInput'>
+      <div className='inputGroup'>
         <input onChange={handleChange} placeholder='Company' id='company'></input>
         <input onChange={handleChange} placeholder='Title' id='title'></input>
         <input onChange={handleChange} placeholder='Date Start' id='dateStart'></input>
         <input onChange={handleChange} placeholder='Date End' id='dateEnd'></input>
         <textarea onChange={handleChange} placeholder='Description...' id='description'></textarea>
-        <button onClick={() => this.props.delete(this.props.experience.id)}>Remove Item</button>
+        <button onClick={() => this.props.delete(this.props.experience.id)}>Delete</button>
       </div>
     )
   }

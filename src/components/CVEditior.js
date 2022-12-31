@@ -172,7 +172,7 @@ class CVEditor extends Component {
 
   render() {
     return (
-      <div>
+      <div className='wrapper'>
         <Inputs
           state={this.state}
           addExperience={this.onAddExperienceGroup}

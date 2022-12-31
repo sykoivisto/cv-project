@@ -6,9 +6,9 @@ class Preview extends Component {
     return (
       <div className='preview'>
         <div className='generalInfo'>
-          <div className='nameTitle'>
-            <p>{ this.props.form.personalInfo.name }</p>
-            <p>{ this.props.form.personalInfo.title }</p>
+          <div className='nameGroup'>
+            <p className='nameName'>{ this.props.form.personalInfo.name }</p>
+            <p className='nameTitle'>{ this.props.form.personalInfo.title }</p>
           </div>
           <div className='contactInfo'>
             <p>{ this.props.form.personalInfo.phone }</p>
@@ -25,10 +25,16 @@ class Preview extends Component {
             return (
               <div key={ experience.id } className='workExperienceItem'>
                 <div className='workExperienceInfo'>
-                  <span>{ experience.title }</span>
-                  <span>{ experience.company }</span>
-                  <span>{ experience.dateStart }</span>
-                  <span>{ experience.dateEnd }</span>
+                  <span className='experienceTitle'>{ experience.title }</span>
+                  <span>
+                    <span className='experienceCompany'>{ experience.company }</span>
+                    <span> | </span>
+                    <span className='experienceDates'>
+                      <span>{ experience.dateStart }</span>
+                      <span> – </span>
+                      <span>{ experience.dateEnd }</span>
+                    </span>
+                  </span>
                 </div>
                 <div className='workExperienceItemDesc'>{ experience.description }</div>
               </div>
@@ -42,9 +48,13 @@ class Preview extends Component {
               <div key={ education.id } className='educationItem'>
                 <div className='educationInfo'>
                   <span>{ education.title }</span>
-                  <span>{ education.institution }</span>
-                  <span>{ education.dateStart }</span>
-                  <span>{ education.dateEnd }</span>
+                  <span>
+                    <span className='edInstitution'>{ education.institution }</span>
+                    <span> | </span>
+                    <span>{ education.dateStart }</span>
+                    <span> – </span>
+                    <span>{ education.dateEnd }</span>
+                  </span>
                 </div>
               </div>
             )

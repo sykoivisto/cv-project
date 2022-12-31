@@ -22,12 +22,12 @@ class educationInputGroup extends Component {
     }
 
     return (
-      <div className='educationInput'>
+      <div className='inputGroup'>
         <input onChange={handleChange} placeholder='Institution' id='institution'></input>
         <input onChange={handleChange} placeholder='Title' id='title'></input>
         <input onChange={handleChange} placeholder='Date Start' id='dateStart'></input>
         <input onChange={handleChange} placeholder='Date End' id='dateEnd'></input>
-        <button onClick={() => this.props.delete(this.props.education.id)}>Remove Item</button>
+        <button onClick={() => this.props.delete(this.props.education.id)}>Delete</button>
       </div>
     )
   }
