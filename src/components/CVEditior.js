@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import update from 'immutability-helper';
 
 import Inputs from './Inputs';
@@ -73,120 +73,90 @@ const Education = (id, institution, title, dateStart, dateEnd) => {
   };
 };
 
-class CVEditor extends Component {
-  constructor(props) {
-    super(props);
+const CVEditor = (props) => {
 
-    this.state = {
-      personalInfo: {
-        name: '',
-        title: '',
-        phone: '',
-        email: '',
-        location: '',
-        description: '',
-      },
-      experience: [],
-      education: [],
-    };
+  const [personalInfo, setPersonalInfo] = useState({
+    name: '',
+    title: '',
+    phone: '',
+    email: '',
+    location: '',
+    description: '',
+  })
+  const [experience, setExperience] = useState([])
+  const [education, setEducation] = useState([])
 
-    this.onAddExperienceGroup = this.onAddExperienceGroup.bind(this);
-    this.onDeleteExperienceGroup = this.onDeleteExperienceGroup.bind(this);
-    this.onUpdateExperienceGroup = this.onUpdateExperienceGroup.bind(this);
 
-    this.onAddEducationGroup = this.onAddEducationGroup.bind(this);
-    this.onDeleteEducationGroup = this.onDeleteEducationGroup.bind(this);
-    this.onUpdateEducationGroup = this.onUpdateEducationGroup.bind(this);
-
-    this.onUpdatePersonalInfo = this.onUpdatePersonalInfo.bind(this);
-  }
-
-  onAddExperienceGroup() {
+  const onAddExperienceGroup = () => {
     // create a new Experience object with a unique ID
     let id = new Date(); // use date as a unique id
     let newExperience = Experience(id.getTime()); // create a new experience obj with unique id
-    this.setState({
-      experience: this.state.experience.concat(newExperience),
-    });
+    setExperience(experience.concat(newExperience))
   }
 
-  onDeleteExperienceGroup(id) {
+  const onDeleteExperienceGroup = (id) => {
     // filter out the object with the corresponding id
-    this.setState({
-      experience: this.state.experience.filter((item) => {
-        return item.id !== id;
-      }),
-    });
+    setExperience(experience.filter((item) => {
+      return item.id !== id;
+    }));
   }
 
-  onUpdateExperienceGroup(updateInfo) {
+  const onUpdateExperienceGroup = (updateInfo) => {
     // receives the information needed to update the state here.
     // {id: string, property: string, value: string}
-    const itemIndex = this.state.experience.findIndex(
+    const itemIndex = experience.findIndex(
       (item) => item.id === updateInfo.id
     );
-    this.setState({
-      experience: update(this.state.experience, {
-        [itemIndex]: { [updateInfo.property]: { $set: updateInfo.value } },
-      }),
-    });
+    setExperience(update(experience, {
+      [itemIndex]: { [updateInfo.property]: { $set: updateInfo.value } },
+    }))
   }
 
-  onAddEducationGroup() {
+  const onAddEducationGroup = () => {
     let id = new Date(); // use date as a unique id
     let newEducation = Education(id.getTime()); // create a new obj with unique id
-    this.setState({
-      education: this.state.education.concat(newEducation),
-    });
+    setEducation(education.concat(newEducation))
   }
 
-  onDeleteEducationGroup(id) {
+  const onDeleteEducationGroup = (id) => {
     // filter out the object with the corresponding id
-    this.setState({
-      education: this.state.education.filter((item) => {
-        return item.id !== id;
-      }),
-    });
+    setEducation(education.filter((item) => {
+      return item.id !== id;
+    }))
   }
 
-  onUpdateEducationGroup(updateInfo) {
+  const onUpdateEducationGroup = (updateInfo) => {
     // receives the information needed to update the state here.
     // {id: string, property: string, value: string}
-    const itemIndex = this.state.education.findIndex(
+    const itemIndex = education.findIndex(
       (item) => item.id === updateInfo.id
     );
-    this.setState({
-      education: update(this.state.education, {
-        [itemIndex]: { [updateInfo.property]: { $set: updateInfo.value } },
-      }),
-    });
+    setEducation(update(education, {
+      [itemIndex]: { [updateInfo.property]: { $set: updateInfo.value } },
+    }))
   }
 
-  onUpdatePersonalInfo(updateInfo) {
-    this.setState({
-      personalInfo: update(this.state.personalInfo, {
-        [updateInfo.property]: { $set: updateInfo.value },
-      }),
-    });
+  const onUpdatePersonalInfo = (updateInfo) => {
+    setPersonalInfo(update(personalInfo, {
+      [updateInfo.property]: { $set: updateInfo.value },
+    }))
   }
 
-  render() {
-    return (
-      <div className='wrapper'>
-        <Inputs
-          state={this.state}
-          addExperience={this.onAddExperienceGroup}
-          deleteExperience={this.onDeleteExperienceGroup}
-          updateExperience={this.onUpdateExperienceGroup}
-          addEducation={this.onAddEducationGroup}
-          deleteEducation={this.onDeleteEducationGroup}
-          updateEducation={this.onUpdateEducationGroup}
-          updatePersonalInfo={this.onUpdatePersonalInfo}
-        ></Inputs>
-        <Preview form={this.state}></Preview>
-      </div>
-    );
-  }
+  return (
+    <div className='wrapper'>
+      <Inputs
+        state={{personalInfo, experience, education}}
+        addExperience={onAddExperienceGroup}
+        deleteExperience={onDeleteExperienceGroup}
+        updateExperience={onUpdateExperienceGroup}
+        addEducation={onAddEducationGroup}
+        deleteEducation={onDeleteEducationGroup}
+        updateEducation={onUpdateEducationGroup}
+        updatePersonalInfo={onUpdatePersonalInfo}
+      ></Inputs>
+      <Preview form={{personalInfo, experience, education}}></Preview>
+    </div>
+  );
 }
 
 export default CVEditor;
