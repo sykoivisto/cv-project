@@ -1,24 +1,10 @@
 import React, { Component } from 'react';
 
 class educationInputGroup extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      id: this.props.education.id,
-      institution: this.props.education.institution,
-      title: this.props.education.title,
-      dateStart: this.props.education.dateStart,
-      dateEnd: this.props.education.dateEnd,
-    }
-  }
 
   render() {
-
     const handleChange = (e) => {
-      this.setState({
-        [e.target.id]: e.target.value
-      }, () => this.props.update({id: this.state.id, property: e.target.id, value: this.state[e.target.id]}))
+      this.props.update({id: this.props.education.id, property: e.target.id, value: e.target.value})
     }
 
     return (

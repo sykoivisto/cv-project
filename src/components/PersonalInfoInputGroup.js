@@ -1,25 +1,10 @@
 import React, { Component } from 'react';
 
 class PersonalInfoInputGroup extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      name: this.props.info.name,
-      title: this.props.info.title,
-      phone: this.props.info.phone,
-      email: this.props.info.email,
-      location: this.props.info.location,
-      description: this.props.info.description,
-    }
-  }
 
   render() {
-
     const handleChange = (e) => {
-      this.setState({
-        [e.target.id]: e.target.value
-      }, () => this.props.update({property: e.target.id, value: this.state[e.target.id]}))
+      this.props.update({property: e.target.id, value: e.target.value})
     }
 
     return (

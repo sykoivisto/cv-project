@@ -1,25 +1,10 @@
 import React, { Component } from 'react';
 
 class ExperienceInputGroup extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      id: this.props.experience.id,
-      company: this.props.experience.company,
-      title: this.props.experience.title,
-      dateStart: this.props.experience.dateStart,
-      dateEnd: this.props.experience.dateEnd,
-      description: this.props.experience.description,
-    }
-  }
 
   render() {
-
     const handleChange = (e) => {
-      this.setState({
-        [e.target.id]: e.target.value
-      }, () => this.props.update({id: this.state.id, property: e.target.id, value: this.state[e.target.id]}))
+      this.props.update({id: this.props.experience.id, property: e.target.id, value: e.target.value})
     }
 
     return (
