@@ -1,6 +1,6 @@
 # CV Editor
 
-# [LIVE DEMO](https://sykoivist.github.io/cv-project)
+# [LIVE DEMO](https://sykoivisto.github.io/cv-project)
 
 ## Description
 
