@@ -8,10 +8,10 @@ const educationInputGroup = (props) => {
 
   return (
     <div className='inputGroup'>
-      <input onChange={handleChange} placeholder='Institution' id='institution'></input>
-      <input onChange={handleChange} placeholder='Title' id='title'></input>
-      <input onChange={handleChange} placeholder='Date Start' id='dateStart'></input>
-      <input onChange={handleChange} placeholder='Date End' id='dateEnd'></input>
+      <input onChange={handleChange} placeholder='Institution' id='institution' value={props.education.institution}></input>
+      <input onChange={handleChange} placeholder='Title' id='title' value={props.education.title}></input>
+      <input onChange={handleChange} placeholder='Date Start' id='dateStart' value={props.education.dateStart}></input>
+      <input onChange={handleChange} placeholder='Date End' id='dateEnd' value={props.education.dateEnd}></input>
       <button onClick={() => props.delete(props.education.id)}>Delete</button>
     </div>
   )

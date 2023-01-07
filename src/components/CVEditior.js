@@ -4,87 +4,16 @@ import update from 'immutability-helper';
 import Inputs from './Inputs';
 import Preview from './Preview';
 
-const Experience = (id, company, title, dateStart, dateEnd, description) => {
-  return {
-    get id() {
-      return id;
-    },
-    get company() {
-      return company;
-    },
-    set company(val) {
-      company = val;
-    },
-    get title() {
-      return title;
-    },
-    set title(val) {
-      title = val;
-    },
-    get dateStart() {
-      return dateStart;
-    },
-    set dateStart(val) {
-      dateStart = val;
-    },
-    get dateEnd() {
-      return dateEnd;
-    },
-    set dateEnd(val) {
-      dateEnd = val;
-    },
-    get description() {
-      return description;
-    },
-    set description(val) {
-      description = val;
-    },
-  };
-};
-const Education = (id, institution, title, dateStart, dateEnd) => {
-  return {
-    get id() {
-      return id;
-    },
-    get institution() {
-      return institution;
-    },
-    set institution(val) {
-      institution = val;
-    },
-    get title() {
-      return title;
-    },
-    set title(val) {
-      title = val;
-    },
-    get dateStart() {
-      return dateStart;
-    },
-    set dateStart(val) {
-      dateStart = val;
-    },
-    get dateEnd() {
-      return dateEnd;
-    },
-    set dateEnd(val) {
-      dateEnd = val;
-    },
-  };
-};
+import Experience from './helpers/Experience';
+import Education from './helpers/Education';
 
-const CVEditor = (props) => {
+import template from './helpers/template';
 
-  const [personalInfo, setPersonalInfo] = useState({
-    name: '',
-    title: '',
-    phone: '',
-    email: '',
-    location: '',
-    description: '',
-  })
-  const [experience, setExperience] = useState([])
-  const [education, setEducation] = useState([])
+const CVEditor = () => {
+
+  const [personalInfo, setPersonalInfo] = useState(template.personalInfo)
+  const [experience, setExperience] = useState(template.experience)
+  const [education, setEducation] = useState(template.education)
 
 
   const onAddExperienceGroup = () => {

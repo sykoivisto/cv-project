@@ -10,7 +10,7 @@ const Inputs = (props) => {
     <div className='inputs'>
       <div className='groupWrapper'>
       <h1>Personal Details</h1>
-      <PersonalInfoInputGroup info={props.state.personalInfo} update={props.updatePersonalInfo}></PersonalInfoInputGroup>
+      <PersonalInfoInputGroup data={props.state.personalInfo} update={props.updatePersonalInfo}></PersonalInfoInputGroup>
       </div>
       <div className='groupWrapper'>
       <h1>Work Experience</h1>

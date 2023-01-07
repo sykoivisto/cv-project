@@ -8,11 +8,11 @@ const ExperienceInputGroup = (props) => {
 
   return (
     <div className='inputGroup'>
-      <input onChange={handleChange} placeholder='Company' id='company'></input>
-      <input onChange={handleChange} placeholder='Title' id='title'></input>
-      <input onChange={handleChange} placeholder='Date Start' id='dateStart'></input>
-      <input onChange={handleChange} placeholder='Date End' id='dateEnd'></input>
-      <textarea onChange={handleChange} placeholder='Description...' id='description'></textarea>
+      <input onChange={handleChange} placeholder='Company' id='company' value={props.experience.company}></input>
+      <input onChange={handleChange} placeholder='Title' id='title' value={props.experience.title}></input>
+      <input onChange={handleChange} placeholder='Date Start' id='dateStart' value={props.experience.dateStart}></input>
+      <input onChange={handleChange} placeholder='Date End' id='dateEnd' value={props.experience.dateEnd}></input>
+      <textarea onChange={handleChange} placeholder='Description...' id='description' value={props.experience.description}></textarea>
       <button onClick={() => props.delete(props.experience.id)}>Delete</button>
     </div>
   )
